@@ -1,3 +1,5 @@
+body 
+    margin: 0
 .list
     display: flex
     flex-wrap: wrap
@@ -9,5 +11,37 @@
         box-shadow: 3px
         box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px
         transition: 1s all
+        z-index: 1
         &:hover
             transform: scale(1.1)
+.modal-wrapper
+    position: absolute
+    height: 100vh
+    width: 100vw
+.image-modal
+    margin: 0 auto
+    height: 706px
+    width: 692px
+    display: none
+    padding-top: 20px
+    box-shadow: 0px 20px 25px -5px rgba(0, 0, 0, 0.1), 0px 10px 10px -5px rgba(0, 0, 0, 0.04)
+    border-radius: 8px
+    background-color: #fff
+    z-index: 20
+    
+    &__bg
+        position: fixed
+        height: 100vh
+        width: 100vw
+        background-color: rgba(0, 0, 0, 0.4)
+        z-index: 10
+    &__img
+        margin: 0 auto
+        height: 405px
+        width: 405px
+        border-radius: 24px
+        box-shadow: 0px 25px 50px -12px rgba(0, 0, 0, 0.25)
+.active
+    display: block
+.hidden 
+    display: none

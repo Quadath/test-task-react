@@ -29,14 +29,15 @@ export default function ImageModal({ isVisible, id, closeModal }) {
     }
 
     function addComment() {
-        const comments = data.comments;
-        comments.push({ id: 100, text: commentText, date: new Date().getTime() });
-        console.log(comments)
-        setData({
-            ...data,
-            comments
-        })
-        setCommentText('')
+        if (commentText.match("^[A-Za-z0-9_-]*$") && commentText.trim().length !== 0) {
+            const comments = data.comments;
+            comments.push({ id: comments.length + 1, text: commentText, date: new Date().getTime() });
+            setData({
+                ...data,
+                comments
+            })
+            setCommentText('')
+        }
     }
 
     useEffect(() => {
@@ -68,8 +69,6 @@ export default function ImageModal({ isVisible, id, closeModal }) {
                 </div>
                 <button className="comment-btn" onClick={addComment}>Save</button>
             </div>
-            <div />
         </div>
-
     )
 } 

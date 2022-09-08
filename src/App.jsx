@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { fetchImage } from "./fetchService";
 import ImageCard from "./components/ImageCard";
-import "./App.sass"
 import ImageModal from "./components/ImageModal";
+import "./App.sass"
 
 
 function App() {
@@ -11,10 +11,6 @@ function App() {
   const [loading, setLoading] = useState(true);
   const [selectedId, setSelectedId] = useState(0)
   const [isModalVisible, setIsModalVisible] = useState(false);
-
-  const elements = images?.map(item => {
-    return <ImageCard key={item.id} url={item.url} id={item.id} showModal={(id) => {setSelectedId(id); setIsModalVisible(true)}}/>
-  })
 
   function closeModal(e) {
     if (e.target.className === "image-modal__bg")
@@ -33,7 +29,7 @@ function App() {
       <ImageModal isVisible={isModalVisible} id={selectedId} closeModal={closeModal}/>
       <div className="list">
         {loading ? <p>Loading...</p> : null}
-        {elements}
+        {images ? images.map(item =>  <ImageCard key={item.id} url={item.url} id={item.id} showModal={(id) => {setSelectedId(id); setIsModalVisible(true)}}/>) : null}
       </div>
     </div>
   );

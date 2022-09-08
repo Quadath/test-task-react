@@ -1,4 +1,5 @@
 import React from "react";
+import './ImageCard.sass'
 
 export default function ImageCard({url, showModal, id}) {
     return (
